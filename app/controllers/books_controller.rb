@@ -5,6 +5,7 @@ class BooksController < ApplicationController
     @newBook = Book.new
     @user = @book.user
     @btn = "Create Book"
+    
   end
 
   def index
