@@ -47,14 +47,13 @@
           </td>    
         </tr>  
       </table>
-
-              <div>
+        
                 <%@book.book_comments.each do |book_comment| %>
                   <p>
-                  <%= image_tag @user.get_profile_image, size:"50x50" %><br> 
-                  </p>
-                  <p> 
-                  <%= book_comment.user.name %>
+                   <%= link_to users_path(book_comment) do %>
+                      <%= image_tag @user.get_profile_image, size:'50x50' %>
+                      <%= book_comment.user.name %>
+                   <% end %> 
                   <%= book_comment.created_at.strftime('%Y/%m/%d') %>
                   <%= book_comment.comment %> 
                   
@@ -65,7 +64,7 @@
                   <!--コメント削除ここまで-->
                 <% end %> 
               </p>
-              </div>
+              
       <%= form_with model: [@book, @book_comment] do |f| %>
         <%= f.text_area :comment, rows: '5', style: "width:100%",placeholder: "コメントをここに" %>
         <%= f.submit "送信" %>
