@@ -50,10 +50,10 @@
         
                 <%@book.book_comments.each do |book_comment| %>
                   <p>
-                   <%= link_to users_path(book_comment) do %>
-                      <%= image_tag @user.get_profile_image, size:'50x50' %>
-                      <%= book_comment.user.name %>
-                   <% end %> 
+                  <%= link_to users_path(book_comment) do %>
+                    <%= image_tag @user.get_profile_image, size:'50x50' %>
+                    <%= book_comment.user.name %>
+                  <% end %> 
                   <%= book_comment.created_at.strftime('%Y/%m/%d') %>
                   <%= book_comment.comment %> 
                   
