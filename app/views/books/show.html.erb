@@ -42,24 +42,22 @@
 
 
           <td>
-            
               <p>コメント件数：<%= @book.book_comments.count %></p>
-              <% @book.book_comments.each do |book_comment| %>
-                <%= book_comment.user.name %>
-                <%= book_comment.created_at.strftime('%Y/%m/%d') %>
-                <%= book_comment.comment %>
-              <% end %>
-              
-            
-              <%= form_with model: [@book, @book_comment] do |f| %>
-                <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-                <%= f.submit "送信する" %>
-              <% end %>
-            
+              <div>
+                <%@book.book_comments.each do |book_comment| %>
+                  <%= book_comment.user.name %> 
+                  <%= book_comment.created_at.strftime('%Y/%m/%d') %>
+                  <%= book_comment.comment %>
+                  
+                <% end %>
+              </div>
           </td>
         </tr>
       </table>
-
+      <%= form_with model: [@book, @book_comment] do |f| %>
+        <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+        <%= f.submit "送信する" %>
+      <% end %>
     </div>
   </div>
 </div>
