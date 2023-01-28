@@ -6,13 +6,15 @@ class BooksController < ApplicationController
     @user = @book.user
     @btn = "Create Book"
     @book_comment = BookComment.new
-    
+    @following_users = @user.following_user
+    @follower_users = @user.follower_user
   end
 
   def index
     @book = Book.new
     @books = Book.all
     @btn = "Create Book"
+
   end
 
   def create
