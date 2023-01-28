@@ -45,6 +45,7 @@
               <p>コメント件数：<%= @book.book_comments.count %></p>
               <div>
                 <%@book.book_comments.each do |book_comment| %>
+                  
                   <%= book_comment.user.name %> 
                   <%= book_comment.created_at.strftime('%Y/%m/%d') %>
                   <%= book_comment.comment %>
