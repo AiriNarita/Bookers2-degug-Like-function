@@ -7,6 +7,8 @@ class UsersController < ApplicationController
     @books = @user.books
     @book = Book.new
     @btn = "Create Book"
+    @following_users = @user.following_user
+    @follower_users = @user.follower_user
   end
 
   def index
