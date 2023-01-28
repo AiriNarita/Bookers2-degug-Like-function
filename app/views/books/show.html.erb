@@ -51,6 +51,9 @@
               <div>
                 <%@book.book_comments.each do |book_comment| %>
                   <p>
+                  <%= image_tag @user.get_profile_image, size:"50x50" %><br> 
+                  </p>
+                  <p> 
                   <%= book_comment.user.name %>
                   <%= book_comment.created_at.strftime('%Y/%m/%d') %>
                   <%= book_comment.comment %> 
