@@ -16,7 +16,8 @@ class UsersController < ApplicationController
     @users = User.all
     @book = Book.new
     @btn = "Create Book"
-    @users = User.page(params[:page]).per(3).reverse_order
+   #  @users = User.page(params[:page]).per(3).reverse_order
+
   end  
 
   def edit
@@ -41,10 +42,13 @@ class UsersController < ApplicationController
 
   def follows
     user = User.find(params[:id])
+
     
+    # @following_users = user.following_user.includes(:followed, :follower)
     @following_users = user.following_user
+    # @follower_users = user.follower_user.includes(:followed, :follower)
     @follower_users = user.follower_user
-    
+
   end
 
   def followers
