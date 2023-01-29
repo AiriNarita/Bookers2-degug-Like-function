@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:update]
 
+
   def show
     @user = User.find(params[:id])
    # @user = User.find(current_user.id)
@@ -15,6 +16,7 @@ class UsersController < ApplicationController
     @users = User.all
     @book = Book.new
     @btn = "Create Book"
+    @users = User.page(params[:page]).per(3).reverse_order
   end  
 
   def edit
@@ -37,6 +39,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def follows
+    user = User.find(params[:id])
+    
+    @following_users = user.following_user
+    @follower_users = user.follower_user
+    
+  end
+
+  def followers
+    user = User.find(params[:id])
+    @following_users = user.following_user
+    @follower_users = user.follower_user
+  end
+
+
   private
 
   def user_params
@@ -50,5 +67,7 @@ class UsersController < ApplicationController
     end
   end
 
+ 
+  
   before_action :ensure_correct_user, {only: [:edit, :update]}
 end

@@ -1,0 +1,26 @@
+<h1>Follow Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @following_users.each do |user| %>
+      <tr>
+        <td><%= link_to user_path(user) do %>
+          <%= image_tag user.get_profile_image, size:'50x50' %>
+          <% end %>
+        </td>
+        <td><%= user.name %></td>
+      </tr>
+    <% end %>
+    </tbody>
+
+</table> 
+
+  
