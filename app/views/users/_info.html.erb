@@ -10,6 +10,20 @@
   </tr>
   <tr>
     <td>
+      <%= link_to follows_user_path(user) do %>
+        <h6>Follows<%= user.follower.count %></h6>
+      <% end %> 
+    </td>
+  </tr>
+  <tr>  
+    <th>  
+      <%= link_to followers_user_path(user) do %>
+        <h6>Followers<%= user.followed.count %></h6>
+      <% end %>
+    </th>
+  </tr> 
+  <tr>
+    <th>
       <% if current_user != user %>
         <% if current_user.following?(user) %>
         <%= link_to 'フォロー外す', user_relationships_path(user.id), method: :delete, class: "btn-sm btn-danger" %>
@@ -17,20 +31,8 @@
         <%= link_to 'フォローする', user_relationships_path(user.id), method: :post, class:"btn-sm btn-success" %>
         <% end %>
       <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <%= link_to follows_user_path(user) do %>
-        <h6>フォロー<%= user.follower.count %></h6>
-      <% end %>
-      <%= link_to followers_user_path(user) do %>
-        <h6>フォロワー<%= user.followed.count %></h6>
-      <% end %>
-        
-    </td>
-
-  </tr>  
+    </th>
+  </tr> 
 </table>
 
 <div class='row'>

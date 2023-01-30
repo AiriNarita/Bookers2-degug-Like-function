@@ -1,4 +1,4 @@
-<h1>Follow Users</h1>
+<h1>Follower Users</h1>
 
 <table class='table'>
   <thead>
@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @following_users.each do |user| %>
+    <% @follower_users.each do |user| %>
       <tr>
         <td>
           <%= link_to user_path(user) do %>

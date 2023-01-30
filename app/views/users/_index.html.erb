@@ -11,6 +11,12 @@
       <tr>
         <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
         <td><%= user.name %></td>
+        <td>
+            <h6>フォロー数:<%= user.follower.count %></h6>
+        </td>
+        <td>  
+            <h6>フォロワー数:<%= user.followed.count %></h6>
+        </td>
         <td><%= link_to 'Show', user %></td>
       </tr>
     <% end %>
