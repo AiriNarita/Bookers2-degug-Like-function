@@ -38,6 +38,7 @@ class User < ApplicationRecord
     (profile_image.attached?) ? profile_image : 'no_image.jpg'
   end
 
+  # Seach-function
   def self.search_for(content, method)
     if method == 'perfect'
       User.where(name: content)
