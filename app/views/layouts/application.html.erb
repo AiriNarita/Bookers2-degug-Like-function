@@ -10,7 +10,13 @@
   </head>
   <body>
     <%= render'layouts/header' %>
+    <!--検索ここから-->
+   
+    <% if user_signed_in? %>
+      <%= render 'searches/search' %>
+    <% end %>  
   
+    <!--検索ここまで-->
       <main>
         
         <p id="notice"> <%= notice %> </p>
