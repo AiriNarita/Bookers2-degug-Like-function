@@ -56,4 +56,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
-# search-function
+# 非同期通信　
+gem 'jquery-rails'
+
