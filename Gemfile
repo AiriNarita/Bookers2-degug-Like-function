@@ -58,4 +58,3 @@ gem 'devise'
 
 # 非同期通信　
 gem 'jquery-rails'
-
