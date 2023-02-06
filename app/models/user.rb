@@ -10,6 +10,10 @@ class User < ApplicationRecord
    has_many :favorites, dependent: :destroy
    has_many :book_comments, dependent: :destroy
 
+   #DM
+   has_many :messages, dependent: :destroy
+   has_many :entries, dependent: :destroy
+   
   #relationshipModel assosiation
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # ① フォローしている人取得(Userのfollowerから見た関係)
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # ② フォローされている人取得(Userのfolowedから見た関係)
