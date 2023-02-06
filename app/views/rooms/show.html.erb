@@ -1,25 +1,28 @@
-
+<!-- @myUserId -->
 <% @entries.each do |e| %>
-  <div class="user-name">
-        <%= e.user.name %>さん
-  </div>
+  <% if @myUserId != e.user.id %>
+    <div class="user-name">
+      <h2><%= e.user.name %>さんとのトークルーム</h2>
+    </div>
+  <% end %>
 <% end %>
-<hr>
+<%= link_to "ユーザー一覧に戻る", users_path %>
+
 <div class="chats">
-  <div class="chat">
+  <div class="chat p-5 d-flex flex-column">
     <% if @messages.present? %>
       <% @messages.each do |m| %>
-        <div class="chat-box">
-          <div class="chat-hukidashi">
-            <%= m.message %>
-          </div>
+        <div class="chat-box p-3 <%= @myUserId == m.user.id ? 'align-self-end' : 'align-self-start' %>">
+          <p class="m-0"><small><%= m.user.name %></small></p>
+          <p class="p-2 mb-1 bg-light text-dark"><%= m.message %></p>
         </div>
       <% end %>
     <% end %>
   </div>
   <div class="posts">
     <%= form_for @message do |f| %>
-      <%= f.text_field :message, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
+      
+      <%= f.text_field :message, placeholder: "メッセージを入力して下さい" , size: 50, class:"form-text-field" %>
         <%= f.hidden_field :room_id, value: @room.id %>
           <%= f.submit "投稿",class: 'form-submit'%>
     <% end %>

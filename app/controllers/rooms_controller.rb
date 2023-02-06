@@ -15,9 +15,11 @@ class RoomsController < ApplicationController
       @messages = @room.messages
       @message = Message.new
       @entries = @room.entries
-
+      #Roomで相手の名前表示するために使う
+      @myUserId = current_user.id
     else
       redirect_back(fallback_location: root_path)
     end
+
   end
 end

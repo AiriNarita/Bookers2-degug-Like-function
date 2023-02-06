@@ -40,7 +40,7 @@
       <% unless user.id == current_user.id %>
       <% if (current_user.following? user) && (user.following? current_user)  %>
         <% if isRoom == true %>
-          <p class="user-show-room"><a href="/rooms/<%= roomId %>">チャットへ</a>
+          <p class="user-show-room"><a href="/rooms/<%= roomId %>" ">チャットへ</a>
         <% else %>
           <%= form_for room do |f| %>
             <%= fields_for entry do |e| %>
