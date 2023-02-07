@@ -6,12 +6,14 @@ class Book < ApplicationRecord
 
   has_many :favorites, dependent: :destroy
   has_many :book_comments, dependent: :destroy
-  
-  
+
 
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end   
+
+  #閲覧数
+  has_many :view_counts, dependent: :destroy
   
   # 検索機能
   

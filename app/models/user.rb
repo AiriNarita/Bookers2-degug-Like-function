@@ -13,7 +13,8 @@ class User < ApplicationRecord
    #DM
    has_many :messages, dependent: :destroy
    has_many :entries, dependent: :destroy
-   
+   #閲覧数
+   has_many :view_counts, dependent: :destroy
    
   #relationshipModel assosiation
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # ① フォローしている人取得(Userのfollowerから見た関係)
