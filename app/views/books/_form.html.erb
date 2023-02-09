@@ -7,9 +7,23 @@
     <label for="book_body">Opinion</label>
     <%= f.text_area :body, class: 'form-control book_body' %>
   </div>
+  <div id="stars">
+    <label>Rate</label>
+  </div>
+    
   <div class="form-group">
     <%= f.submit btn , class: 'btn btn-success' %>
   </div>
-
-
 <% end %>
+<script>
+  let elem = document.querySelector('#stars');
+  let opt = {
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+    scoreName: 'book[star]',
+    score: "<%= isEdit ? jonsoku.star : 0 %>"
+  };
+  window.raty(elem, opt);
+</script>
+
