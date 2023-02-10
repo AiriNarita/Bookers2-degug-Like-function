@@ -22,8 +22,14 @@
           <%= render "favorites/favorites", book: book %>
       </td>
       <td>
+        <% if book.category.present? %>
+          <%= link_to book.category, tagsearches_search_path(content: book.category) %></td>
+        <% end %>
+      </td>
+      <td>
         <div id="index-stars-<%= book.id %>"> </div>
       </td>
+
       <td>  
           <%= link_to "#{book.book_comments.count} コメント", book_path(book.id) %>
       </td>
