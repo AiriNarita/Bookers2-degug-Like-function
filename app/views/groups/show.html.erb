@@ -23,7 +23,12 @@
         </thead>
         <tbody>
           <tr>
-            <td></td>
+            <td>
+              <div class="form-group">
+                <%= f.label :グループ画像 %>
+                <%= f.attachment_field :image, class: "form-control-file" %>
+              </div>
+            </td>
             <td><%= @group.name %></td>
             <td><%= @group.introduction %></td>
             <td>
