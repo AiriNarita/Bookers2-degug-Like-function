@@ -24,10 +24,7 @@
         <tbody>
           <tr>
             <td>
-              <div class="form-group">
-                <%= f.label :グループ画像 %>
-                <%= f.attachment_field :image, class: "form-control-file" %>
-              </div>
+              <%= attachment_image_tag(@group, :image, :fill, 50, 50, fallback: "no-image-icon.jpg") %>
             </td>
             <td><%= @group.name %></td>
             <td><%= @group.introduction %></td>
