@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   resources :messages, only: [:create]
   resources :rooms, only: [:create,:show]
   
-  resources :groups do.    
+  resources :groups do
     get "join" => "groups#join"
   end
 

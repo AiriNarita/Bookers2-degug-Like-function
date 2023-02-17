@@ -4,5 +4,4 @@ class Group < ApplicationRecord
 
   validates :name, presence: true
   validates :introduction, presence: true
-  attachment :image, destroy: false
 end
